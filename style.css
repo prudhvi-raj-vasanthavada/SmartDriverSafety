@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef3f8;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 20px auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* HORIZONTAL INFORMATION PANELS */
+.container > .panel {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Sensor information */
+.container > .panel:nth-of-type(1) {
+    width: 55%;
+    margin-right: 1%;
+}
+
+/* Vehicle status */
+.container > .panel:nth-of-type(2) {
+    width: 43%;
+}
+
+/* Live simulation */
+.container > .panel:nth-of-type(3) {
+    width: 100%;
+}
+
+.panel {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+/* Make sensor information horizontal */
+.sensor {
+    display: inline-block;
+    width: 32%;
+    font-size: 17px;
+    margin: 10px 0;
+}
+
+/* Buttons horizontal */
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Alcohol */
+.alcoholControl {
+    margin-top: 15px;
+}
+
+input[type="range"] {
+    width: 80%;
+}
+
+/* Vehicle status */
+#vehicleStatus {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.safe {
+    color: green;
+}
+
+.blocked {
+    color: red;
+}
+
+#alertMessage {
+    font-size: 18px;
+}
+
+/* =========================
+   HORIZONTAL LIVE ROAD
+   ========================= */
+
+#road {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: #555;
+    border-top: 60px solid #35a853;
+    border-bottom: 60px solid #35a853;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* Horizontal road lines */
+.roadLine {
+    position: absolute;
+    top: 50%;
+    left: -120px;
+    width: 100px;
+    height: 8px;
+    background: white;
+    transform: translateY(-50%);
+}
+
+/* Move road lines */
+#road.roadMoving .roadLine {
+    animation: roadMove 2s linear infinite;
+}
+
+.line2 {
+    animation-delay: 0.4s !important;
+}
+
+.line3 {
+    animation-delay: 0.8s !important;
+}
+
+.line4 {
+    animation-delay: 1.2s !important;
+}
+
+.line5 {
+    animation-delay: 1.6s !important;
+}
+
+@keyframes roadMove {
+    from {
+        left: -120px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+/* Car */
+#car {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 65px;
+    z-index: 10;
+}
+
+#car.carMoving {
+    animation: carBounce 0.5s infinite alternate;
+}
+
+@keyframes carBounce {
+    from {
+        transform: translate(-50%, -50%);
+    }
+
+    to {
+        transform: translate(-50%, -55%);
+    }
+}
+
+#car.carStopped {
+    animation: none !important;
+}
+
+#movementStatus {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+
+    .container > .panel:nth-of-type(1),
+    .container > .panel:nth-of-type(2) {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .sensor {
+        width: 100%;
+    }
+}

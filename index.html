@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Driver Safety</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚗 Smart Driver Safety System</h1>
+
+    <!-- SENSOR PANEL -->
+    <div class="panel">
+
+        <h2>🧪 Live Sensor Monitoring</h2>
+
+        <div class="sensor">
+            👤 Driver:
+            <strong id="driverStatus">NO DRIVER</strong>
+        </div>
+
+        <div class="sensor">
+            🍺 Alcohol Level:
+            <strong id="alcoholStatus">0</strong>
+        </div>
+
+        <div class="sensor">
+            😴 Sleep Sensor:
+            <strong id="sleepStatus">AWAKE</strong>
+        </div>
+
+        <hr>
+
+        <button id="driverButton">
+            👤 Driver Present / Absent
+        </button>
+
+        <button id="sleepButton">
+            😴 Sleep / Awake
+        </button>
+
+        <div class="alcoholControl">
+
+            <label>
+                🍺 Alcohol Sensor Simulation
+            </label>
+
+            <br>
+
+            <input
+                type="range"
+                id="alcoholSlider"
+                min="0"
+                max="100"
+                value="0"
+            >
+
+            <div>
+                Alcohol Reading:
+                <strong id="alcoholReading">0</strong>
+            </div>
+
+            <p>
+                <b>Allowed:</b> 0–29
+                &nbsp; | &nbsp;
+                <b>Blocked:</b> 30–100
+            </p>
+
+        </div>
+
+        <button id="resetButton" class="reset">
+            🔄 Reset System
+        </button>
+
+    </div>
+
+
+    <!-- VEHICLE STATUS -->
+
+    <div class="panel">
+
+        <h2>🚦 Vehicle Status</h2>
+
+        <div id="vehicleStatus" class="blocked">
+            🚫 VEHICLE STOPPED
+        </div>
+
+        <div id="alertMessage">
+            ⚠️ No driver detected
+        </div>
+
+    </div>
+
+
+    <!-- LIVE ROAD -->
+
+    <div class="panel">
+
+        <h2>🛣️ Live Vehicle Simulation</h2>
+
+        <div id="road">
+
+            <!-- ROAD LINES -->
+
+            <div class="roadLine line1"></div>
+            <div class="roadLine line2"></div>
+            <div class="roadLine line3"></div>
+            <div class="roadLine line4"></div>
+            <div class="roadLine line5"></div>
+
+            <!-- CAR -->
+
+            <div id="car">🚗</div>
+
+        </div>
+
+        <div id="movementStatus">
+            🛑 VEHICLE IS STOPPED
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
